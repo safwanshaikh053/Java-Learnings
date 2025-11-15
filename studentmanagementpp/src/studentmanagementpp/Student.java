@@ -1,76 +1,89 @@
 package studentmanagementpp;
 
 public class Student {
-	
 	private static int count;
-	//attributes
-	 private int rollNumber;
-	 private String name;
-	 private float marks;
-	 
-	 
-	 
-	 /*
-	  Student(){
-		 System.out.println("This is constructor ");
-		 this.rollNumber=3;
-		 this .name="Guest";
-		 this.marks=79.97f;
-	 }
-	 */
-	 //parameterized constructor
-	public  Student(int rollNumber, String name, float marks){
-		 //System.out.println("This is Parameterized constructor");
-		 count++;
-		 this.rollNumber=count;
-		 this.name=name;
-		 this.marks=marks;
-	 }
-	 
-	public void setMarks(float marks) {   //setter
-		 this.marks=marks;
-	 }
-	 public float getMarks() {         //getter
-		 return this.marks;
-	 }
-	 public void setName(String name) {       //setter
-		 this.name=name;
-	 }
-	 
-	 public String getName() {			//getter
-		 return this.name;
-	 }
-	 
-	 private static void setRollNumber(int count) {		//setter
-		 Student.count=count;
-	 }
-	 
-	 public int getRollNumber() {				//getter
-		 return this.rollNumber;
-	 }
-	 public static int getCount() {
-		 return count;
-	 }
-	 void accept(int rollNumber, String name, float marks) {
-		 this.rollNumber=rollNumber;
-		 this.name=name;
-		 this.marks=marks;
-	 }
-	 
-	//method definition
-	//instance method
-	void display(){
-		System.out.println(this.rollNumber);
-		System.out.println(this.marks);
-		System.out.println(this.name);
+	
+	
+	
+	//-------------attributes or Instance Variables
+	private int rollNumber;
+	private String name;
+	private float marks;
+	
+	
+	
+	public int getRollNumber() {
+		return rollNumber;
+	}
+
+	public void setRollNumber(int rollNumber) {
+		this.rollNumber = rollNumber;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public float getMarks() {
+		return marks;
+	}
+
+	public void setMarks(float marks) {
+		this.marks = marks;
+	}
+
+	//--------------Get Account--------------
+	public static int getCount() {
+		return count;
 	}
 	
-	void display(String format) {					//method overloading
-		System.out.println("Roll.No \t Name \t Marks");
-		for(int i=1; i<=40;i++) {
+	void accept(int rollNumber, String name, float marks){
+		this.rollNumber = rollNumber;
+		this.name = name;
+		this.marks = marks;
+	}
+	
+	//no-arg constructor
+//	Student(){
+//		System.out.println("Inside Student constructor");
+//		this.rollNumber = 3;
+//		this.name = "Default";
+//		this.marks = 97.3f;
+//	}
+	
+	public Student(String name, float marks) {
+		System.out.println("====== parameterized constructor =====");
+		count++;
+		this.rollNumber = count;
+		this.name = name;
+		this.marks = marks;
+	}
+	
+	//Instance method
+	void display() {
+		System.out.println(this.rollNumber+" | "+this.name+" | "+this.marks); //this line is equivalent to this.rollNumber, compiler does that implicitly. It is recommended to use explicitly this reference inside instance method
+//		System.out.println(this.name);
+//		System.out.println(this.marks);
+	}
+	
+	void display(String format) {
+		System.out.println("Roll Number \t Name \t Marks");
+		for(int i=0; i<=40; i++) {
 			System.out.print(format);
 		}
-		System.out.println();//for next line
-		System.out.println(this.rollNumber+ "\t \t" + this.name+ "  \t"+ this.marks);
+		System.out.println();
+		System.out.println(this.rollNumber+" \t "+this.name+" \t "+this.marks);
 	}
+	
+	@Override
+	public String toString() {
+		System.out.println("in toString");
+		
+		return this.rollNumber+" | "+this.name+" | "+this.marks;
+	}
+
 }
